@@ -24,14 +24,13 @@ RUN apt-get update && apt-get install -y \
 # install python library（必要にあわせてrequirements.txtに記載を）
 COPY requirements.txt .
 RUN pip3 install --upgrade pip && \
-    pip3 install --no-cache-dir -r requirements.txt \
-    && rm -rf ~/.cache/pip
+    pip3 install --no-cache-dir -r requirements.txt && \
+    rm -rf ~/.cache/pip
 
 
 # デフォルトでインストールしておくpipライブラリ
 RUN pip install --upgrade ipython beautifulsoup4 lxml html5lib seaborn jupytext ptvsd jupyterlab 
 RUN pip install xonsh gnureadline xontrib-powerline2 xontrib-z xontrib-back2dir
-
 
 # TA-LIBとpipiのインストール
 
