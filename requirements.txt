@@ -1,0 +1,3 @@
+pip-review
+japanize-matplotlib
+scipy

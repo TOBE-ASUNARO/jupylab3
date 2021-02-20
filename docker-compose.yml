@@ -1,0 +1,23 @@
+version: "3"
+services:
+  jupyterlab:
+    build: .
+    # ポートの設定("ホスト：コンテナ")
+    ports:
+      - "8888:8888"
+      - "5678:5678"
+    # 環境変数の設定
+    environment:
+      GRANT_SUDO: "yes"
+
+    # ボリューム(データの永続化の場所)の設定(ホスト:コンテナ)
+    volumes:
+      - ./jovyan_homedir:/home/jovyan:z
+      - ./jovyan_homedir/notebooks:/home/jovyan/notebooks:z
+      - jupy_opt:/opt
+
+    # 最後にjupyterLabに接続するためのコマンドを実行する。
+    command: start.sh jupyter lab --NotebookApp.token='' --NotebookApp.contents_manager_class='jupytext.TextFileContentsManager'
+
+volumes:
+    jupy_opt:

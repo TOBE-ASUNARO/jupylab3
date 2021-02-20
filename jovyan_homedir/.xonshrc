@@ -1,0 +1,10 @@
+xontrib load back2dir
+xontrib load z
+xontrib load powerline2
+$PL_PROMPT='short_cwd>branch>'
+$PL_TOOLBAR='cwd>user'
+$PL_RPROMPT='>time'
+$PL_SEP_MODE='round'
+
+aliases["ga"] = "git add ."
+aliases["la"] = "ls -al"
